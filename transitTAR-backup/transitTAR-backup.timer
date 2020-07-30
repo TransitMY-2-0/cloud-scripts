@@ -1,0 +1,11 @@
+# /etc/systemd/system/transitTAR-backup.timer
+
+[Unit]
+Description=Timer to run the sync once every Monday at 3am.
+
+[Timer]
+Unit=transitTAR-backup.service
+OnCalendar=Mon *-*-* 3:00:00
+
+[Install]
+WantedBy=timers.target

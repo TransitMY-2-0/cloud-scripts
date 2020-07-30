@@ -86,3 +86,10 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+counter.txt
+
+# Wallpaper files
+wallpaperDownload/history
+background.jpg
+background.json

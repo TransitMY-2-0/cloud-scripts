@@ -1,0 +1,13 @@
+# /etc/systemd/system/startupMount.service
+
+[Unit]
+Description=Mounts the TransitMY Google Drive folder.
+
+[Service]
+ExecStart=/home/kubuntu/scripts/startupMount/startupMount.sh
+ExecStop=/home/kubuntu/scripts/startupMount/shutdownUnmount.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+# /etc/systemd/system/transit_folderSync.timer
+
+[Unit]
+Description=Timer to run the sync once every 30 mins.
+Requires=transit_folderSync.service
+
+[Timer]
+Unit=transit_folderSync.service
+OnCalendar=*-*-* *:0,30:0
+
+[Install]
+WantedBy=timers.target

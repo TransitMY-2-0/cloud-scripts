@@ -1,0 +1,12 @@
+# /etc/systemd/system/transitNew-TransitOld.service
+
+[Unit]
+Description=Runs the TransitMY mirroring service from the new SMB share to old SMB share. Only mirror if there are changes.
+Wants=transitNew-TransitOld.timer
+
+[Service]
+ExecStart=/home/kubuntu/scripts/transitNew-transitOld/transitNew-TransitOld.sh
+WorkingDirectory=/home/kubuntu
+
+[Install]
+WantedBy=multi-user.target

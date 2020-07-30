@@ -1,0 +1,13 @@
+# /etc/systemd/system/wallpaperDownload.service
+
+[Unit]
+Description=Downloads the daily wallpaper for TransitMY login screen from bing daily images.
+Wants=wallpaperDownload.timer
+
+[Service]
+Type=simple
+ExecStart=/home/kubuntu/scripts/wallpaperDownload/wallpaper.sh
+WorkingDirectory=/home/kubuntu
+
+[Install]
+WantedBy=multi-user.target

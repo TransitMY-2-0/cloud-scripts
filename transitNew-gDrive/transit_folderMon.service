@@ -1,0 +1,12 @@
+# /etc/systemd/system/transit_folderMon.service
+
+[Unit]
+Description=Monitors the TransitMY smb share, and increments a file-based counter.
+
+[Service]
+ExecStart=/home/kubuntu/scripts/transitNew-gDrive/inotifyScript.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

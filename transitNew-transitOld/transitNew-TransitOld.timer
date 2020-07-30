@@ -1,0 +1,12 @@
+# /etc/systemd/system/transitNew-TransitOld.timer
+
+[Unit]
+Description=Timer to run the sync once every day at 5am if there are changes.
+Requires=transitNew-TransitOld.service
+
+[Timer]
+Unit=transitNew-TransitOld.service
+OnCalendar=*-*-* 05:00:00
+
+[Install]
+WantedBy=timers.target

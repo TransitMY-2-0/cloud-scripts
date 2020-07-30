@@ -1,0 +1,13 @@
+# /etc/systemd/system/transitTAR-backup.service
+
+[Unit]
+Description=Compresses the TransitMY folder to TAR file and offloads to Google Drive.
+Wants=transitTAR-backup.timer
+
+[Service]
+Type=simple
+ExecStart=/home/kubuntu/scripts/transitTAR-backup/transitTAR-backup.sh
+WorkingDirectory=/home/kubuntu
+
+[Install]
+WantedBy=multi-user.target
