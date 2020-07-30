@@ -4,7 +4,8 @@
   "description": "Downloads daily wallpaper from bing.",
   "main": "wallpaperDownload.js",
   "dependencies": {
-    "jimp": "^0.10.3"
+    "jimp": "^0.10.3",
+    "jpeg-js": ">=0.4.0"
   },
   "devDependencies": {},
   "scripts": {
