@@ -16,7 +16,7 @@ function toTimeString() {
         elapsedSeconds=$(($1 % 60))
     fi
 
-    timeString+=$1
+    timeString+=$elapsedSeconds
     timeString+=" seconds"
 }
 
