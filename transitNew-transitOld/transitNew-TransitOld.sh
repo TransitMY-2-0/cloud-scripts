@@ -39,3 +39,6 @@ if [[ $counter -gt 0 ]]; then
 else
     echo "No changes found, exiting."
 fi
+
+# To trigger daily owncloud backup
+/home/kubuntu/scripts/ownCloudBackup/ownCloudBackup.sh

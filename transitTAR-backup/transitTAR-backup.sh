@@ -34,11 +34,17 @@ echo $(date +%Y-%m-%d\ %T) : TAR Backup Started >>./TAR-BackupLog.log
 
 node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "archive" "Cloud ⇌ Weekly TAR Snapshot" "TAR Snapshot action started. This archive action runs every Monday at 3am."
 
-# Doing backup
+# Do owncloud backups
+/home/kubuntu/scripts/ownCloudBackup/ownCloudBackup.sh
+
+# Doing file backups
 tar --exclude='*#recycle' \
     -jcvf \
     /mnt/smbShare/backupTARs/$filename.tar.gz \
-    /mnt/smbShare2
+    /mnt/smbShare2 \
+    /mnt/smbShare/ownCloudBackupFiles
+
+rm -rf /mnt/smbShare/ownCloudBackupFiles/*
 
 # Calculating file size and generating human readable string
 fileSize=$(stat --printf="%s" /mnt/smbShare/backupTARs/$filename.tar.gz)
