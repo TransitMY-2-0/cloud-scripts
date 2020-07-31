@@ -35,7 +35,7 @@ if [[ $counter -gt 0 ]]; then
     timeString+=" seconds"
 
     # Sending commands to webhook
-    node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "copy" "Cloud ⇌ Daily snapshot" "Backup complete. Time taken: $timeString."
+    node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "copy" "Cloud ⇌ Daily snapshot" "Snapshot complete. Time taken: $timeString."
 else
     echo "No changes found, exiting."
 fi

@@ -32,7 +32,7 @@ echo Creating TAR archive \"$filename\"
 # Write into log file
 echo $(date +%Y-%m-%d\ %T) : TAR Backup Started >>./TAR-BackupLog.log
 
-node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "archive" "Cloud ⇌ Weekly TAR Snapshot" "Snapshot action started. This archive action runs every Monday at 3am."
+node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "archive" "Cloud ⇌ Weekly TAR Snapshot" "TAR Snapshot action started. This archive action runs every Monday at 3am."
 
 # Doing backup
 tar --exclude='*#recycle' \
@@ -49,7 +49,7 @@ fileSize+=" GB"
 # Sending commands to webhook
 elapsedSeconds=$((SECONDS - a))
 toTimeString $elapsedSeconds
-node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "archive" "Cloud ⇌ Weekly TAR Snapshot" "Snapshot of size $fileSize complete. Time taken: $timeString."
+node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "archive" "Cloud ⇌ Weekly TAR Snapshot" "TAR Snapshot of size $fileSize complete. Time taken: $timeString."
 
 echo "Backup complete, sleeping for 10 seconds."
 echo $(date +%Y-%m-%d\ %T) : TAR Backup Complete >>./TAR-BackupLog.log
