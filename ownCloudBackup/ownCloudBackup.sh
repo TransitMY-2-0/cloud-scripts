@@ -22,6 +22,7 @@ function toTimeString() {
     timeString+=" seconds"
 }
 
+# Backup owncloud database
 a=$SECONDS
 mysqldump \
     --single-transaction \
@@ -31,7 +32,15 @@ mysqldump \
     owncloud_db \
     > /mnt/smbShare/ownCloudBackupFiles/owncloudDB-backup_$dateTime.ocbak
 
+tar --exclude='*#recycle' \
+    -jcvf \
+    /mnt/smbShare/ownCloudBackupFiles/owncloudInstallation-backup_$dateTime.tar.gz \
+    /var/www/owncloud/config \
+    /var/www/owncloud/data \
+    /var/www/owncloud/apps/mynewtheme
+
 elapsedSeconds=$((SECONDS - a))
 toTimeString $elapsedSeconds
 
-node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x9C27B0 "server" "Database backup" "Backup complete. Time taken: $timeString."
+
+node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x9C27B0 "server" "Owncloud Backup" "Database & Server Backup complete. Time taken: $timeString."
