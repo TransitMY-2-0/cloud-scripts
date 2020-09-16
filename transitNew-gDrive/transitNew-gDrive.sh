@@ -3,6 +3,9 @@
 counterFile="/home/kubuntu/scripts/transitNew-gDrive/counter.txt"
 counter=$(<$counterFile)
 
+# Restart service every N minutes such that if mountpoints get disconnected halfway and inotify lost track of it, this command puts it back on track
+systemctl restart transit_folderMon.service
+
 if [[ $counter -gt 0 ]]; then
     echo "$counter changes found. Running rclone."
     node /home/kubuntu/scripts/webhooks/simpleServerWebhook.js 0x009688 "sync" "Cloud ⇌ GDrive" "Changes found, starting sync. This sync checks and runs every 30 mins."
